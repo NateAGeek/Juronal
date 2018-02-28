@@ -1,9 +1,9 @@
+#include "journal.h"
+
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <stdio.h>
-
-#include "journal.h"
 
 int main(int argc, char *argv[]) {
   InitJournal();
@@ -26,12 +26,10 @@ int main(int argc, char *argv[]) {
     while(std::getline(std::cin, line_input)) {
       input.append(line_input);
       input.append("\n");
-      printf("Input %s\n", line_input.c_str());
-
       fputs(">", stdout);
     }
     WriteStringToJournal(input.c_str());
-    
+    puts("Wrote the journal entry");
   }
 
   return 0;
