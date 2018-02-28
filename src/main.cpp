@@ -3,7 +3,10 @@
 #include <cstring>
 #include <stdio.h>
 
+#include "journal.h"
+
 int main(int argc, char *argv[]) {
+  InitJournal();
   bool run_interactive_mode = true;
 
   for(int i = 0; i < argc; i++) {
@@ -22,11 +25,13 @@ int main(int argc, char *argv[]) {
     fputs(">", stdout);
     while(std::getline(std::cin, line_input)) {
       input.append(line_input);
+      input.append("\n");
       printf("Input %s\n", line_input.c_str());
 
       fputs(">", stdout);
     }
-
+    WriteStringToJournal(input.c_str());
+    
   }
 
   return 0;
