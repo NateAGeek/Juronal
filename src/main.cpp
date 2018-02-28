@@ -3,11 +3,6 @@
 #include <cstring>
 #include <stdio.h>
 
-#include <curlpp/cURLpp.hpp>
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
-
-
 int main(int argc, char *argv[]) {
   bool run_interactive_mode = true;
 
@@ -17,10 +12,10 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  char[] interactive_mode_text = "This is the input mode to write yo shit";
-  puts();
-
   if(run_interactive_mode) {
+    char interactive_mode_text[] = "This is the input mode to write yo shit, ctrl+d ends it ";
+    puts(interactive_mode_text);
+
     std::string input = "";
     std::string line_input = "";
 
